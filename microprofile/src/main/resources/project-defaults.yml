@@ -1,0 +1,8 @@
+swarm:
+  datasources:
+    data-sources:
+      pupilDS:
+        driver-name: derby
+        connection-url: jdbc:derby://localhost:1527/pupilDb;create=true
+        user-name: APP
+        password: APP
