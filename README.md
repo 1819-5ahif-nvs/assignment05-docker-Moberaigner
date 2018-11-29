@@ -1,29 +1,37 @@
 # 1819_5ahif_nvs_assignment05_docker
-Dockerfile, docker.compose.yml for JakartaEE, mariadb, reverse proxy, ...
 
-# Übung
+## Starten
+Docker Compose file builden (um alle Container zu Konfigurieren):
+docker-compose up --build
 
-- Dockerfile
-- docker-compose
+Thorntail Projekt builden und ausführen:
+mvn package
 
-Termin: 30.November 2018
+cd target
+java -jar demo-thorntail.jar
 
-## Erstellen Dockerfile
+## Docker
+Folgende Services werden in Docker Containern aufgesetzt:
 
-Verwenden Sie Ihr microprofile-Projekt (eigene DB-Tabellen)
+- nginx webserver (Port 80)
+- wildfly Application Server (Port 8080)
+- mysql (Port 3306)
+- phpmyadmin (Port 5050)
 
-Schreiben Sie ein Dockerfile, um ausgehend von einer vanilla Ubuntu-Installation, installieren Sie Java 10.0 (bei Problemen 8). Anschließend ist noch das 
+## Cheatsheet
 
-Als Ergebnis soll auch ein kleines Cheat-Sheet erstellt, werden in dem zB Unterschied zwischen ADD und COPY erklärt. Warum COMMAND/EXECUTE wichtig ist.
+- FROM
+beinhaltet ein fertiges Image. Man kann als Basis z.B. ein Betriebssystem verwenden (FROM ubuntu:latest)
 
-<https://github.com/caberger/jee-docker>
+- RUN
+Man kann Linux-Befehle für die Shell ausführen. z.B "RUN mkdir /www && touch index.html"
 
-## Container-Orchestrierung mit docker-compose
+-COPY
+Dateien können in den Container geladen oder überschrieben werden.
 
-Erstellen Sie ein docker-compose.yml File
-Diskutieren Sie Probleme, wie das Warten auf die Datenbank
+- ADD
+Dateien können in den Container geladen oder überschreiben werden => auch mit URL möglich z.B ADD http://example.com/big.tar.xz /usr/src/things/
 
 
-## Upload in dockerhub
-
-Laden Sie Ihr Arbeitsergbnis in Dockerhub hoch und geben SIe die Koordinaten im README an
+- EXPOSE
+Ein Container kann ein bestimmter Port zugewiesen werden. z.B EXPOSE 80
