@@ -26,12 +26,11 @@ beinhaltet ein fertiges Image. Man kann als Basis z.B. ein Betriebssystem verwen
 - RUN
 Man kann Linux-Befehle für die Shell ausführen. z.B "RUN mkdir /www && touch index.html"
 
--COPY
+- COPY
 Dateien können in den Container geladen oder überschrieben werden.
 
 - ADD
 Dateien können in den Container geladen oder überschreiben werden => auch mit URL möglich z.B ADD http://example.com/big.tar.xz /usr/src/things/
-
 
 - EXPOSE
 Ein Container kann ein bestimmter Port zugewiesen werden. z.B EXPOSE 80
